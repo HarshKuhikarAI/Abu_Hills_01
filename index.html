@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abu Hills - Premium Real Estate</title>
+    <meta name="description" content="Discover exceptional properties with Abu Hills. Trusted real estate services for families and investors for over 12 years." />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+      /* Smooth scrolling and performance optimizations */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        overflow-x: hidden;
+      }
+      
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: #d4af37;
+        border-radius: 4px;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: #b8941f;
+      }
+      
+      /* Loading animation */
+      .page-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+      }
+      
+      .page-loader.loaded {
+        opacity: 0;
+        visibility: hidden;
+      }
+      
+      .loader-content {
+        text-align: center;
+        color: #d4af37;
+      }
+      
+      .loader-logo {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        animation: pulse 2s ease-in-out infinite;
+      }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+      <div class="loader-content">
+        <div class="loader-logo">ABU HILLS</div>
+        <div>Loading excellence...</div>
+      </div>
+    </div>
+    
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <script>
+      // Hide loader when page is fully loaded
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const loader = document.getElementById('pageLoader');
+          if (loader) {
+            loader.classList.add('loaded');
+          }
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
